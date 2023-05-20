@@ -69,3 +69,14 @@ export const createNewQoute = async(quote, token)=>{
   return await axios.post(`http://localhost:3000/quote/`, quote, config);
 
 }
+export const editQuote = async(idQuote,quote, token)=>{
+
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token.token,  
+    }
+  };
+
+  return await axios.patch(`http://localhost:3000/quote/${idQuote}`, quote, config);
+
+}

@@ -45,6 +45,12 @@ export const NewAppointment = () => {
      console.log(credentials);
    });
 
+   const inputHandlerFunction = (e) => {
+    setCredentials((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
    const handlerFunctionDentist = (e,id) => {
     const { name, value } = e.target;
     const newValue = e.type === 'click' ? id : value;

@@ -4,10 +4,8 @@ import "./Home.css";
 import loading from '../../../public/loading.gif'
 import loadingCircle from "../../../public/loadingCircle.gif"
 import { bringCharacters } from "../../services/apiCalls";
-import { CharacterCard } from "../../components/CharacterCard/CharacterCard";
 
 import { useDispatch } from "react-redux";
-import { addCharacter } from "../detailSlice";
 
 import { useNavigate } from 'react-router-dom';
 
@@ -39,15 +37,15 @@ export const Home = () => {
   //Tenemos los useEffect de seguimiento, que se ejecutarán sólo cuando cambie un hook en concreto
 
 
-  const selectedCard = (person) => {
+  // const selectedCard = (person) => {
 
-    //una vez escogido...guardo en RDX
+  //   //una vez escogido...guardo en RDX
 
-    dispatch(addCharacter({data: person}));
+  //   dispatch(addCharacter({data: person}));
 
-    navigate("/detail");
+  //   navigate("/detail");
 
-  }
+  // }
 
 
   useEffect(() => {
