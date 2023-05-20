@@ -1,0 +1,24 @@
+/* .headerPrimary{
+    width: 99vw;
+    height: 10vh;
+} */
+.headerDesign {
+
+    /* height: 1vh; */
+    /* width: 100vw; */
+}
+
+.headerDesign img{
+
+    height: 3em;
+    width: 3em;
+}
+
+.link {
+
+    font-weight: bold;
+    color: black;
+    transition: 0.5s;
+    margin: 1em;
+    cursor: pointer;
+}

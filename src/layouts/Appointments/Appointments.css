@@ -1,0 +1,23 @@
+
+.quoteDesing{
+    width: 80em;
+    height: 30em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Distribuye las columnas en partes iguales */
+    grid-gap: 20px; /* Espacio entre las tarjetas */
+  }
+
+.headCard{
+    background-color: rgb(185, 245, 245);
+}
+.activate{
+    background-color: rgb(129, 252, 129);
+}

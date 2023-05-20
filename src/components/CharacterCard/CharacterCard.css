@@ -1,0 +1,32 @@
+
+.cardDesign {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    background-color: darkgrey;
+    transition: 0.4s;
+    border-radius: 1em;
+
+    margin: 0.5em;
+    cursor: pointer;
+
+}
+
+.cardDesign:hover {
+
+    transition: 0.4s;
+    background-color: dimgrey;
+}
+
+.imageAvatarDesign {
+
+    height: 8.5em;
+    width: 7.5em;
+
+    border-radius: 0.5em;
+}

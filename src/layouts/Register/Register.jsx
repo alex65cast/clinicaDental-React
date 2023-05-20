@@ -1,0 +1,100 @@
+import React, { useEffect } from "react";
+import "./Register.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { register } from "../../services/apiCalls";
+import { userData } from "../userSlice";
+import Container from "react-bootstrap/Container";
+
+export const Register = () => {
+  //Instanciamos RDX en modo escritura
+
+  const dispatch = useDispatch();
+
+  //Instanciamos RDX en modo lectura
+
+  const userRdxData = useSelector(userData);
+
+  //Instanciamos Navigate
+
+  const navigate = useNavigate();
+
+  //Hook
+  const [credentials, setCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  //   const [message, setMessage] = useState("");
+
+  const inputHandlerFunction = (e) => {
+    setCredentials((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  useEffect(() => {
+    console.log(credentials);
+  });
+
+  const registerMe = () => {
+    register(credentials)
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((error) => console.log(error));
+  };
+  //   useEffect(()=>{
+  //     if(userRdxData.credentials.token){
+  //       navigate("/")
+  //     };
+  //   },[]);
+
+  return (
+    <Container fluid>
+      <div className="registerDesign">
+        <Form>
+          <div className="containerDesing">
+          <Form.Group className="mb-3" controlId="formBasicName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="name"
+              placeholder="Enter name"
+              name="name"
+              onChange={inputHandlerFunction}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              name="email"
+              onChange={inputHandlerFunction}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={inputHandlerFunction}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" onClick={() => registerMe()}>
+            Submit
+          </Button>
+          </div>
+        </Form>
+      </div>
+    </Container>
+  );
+};

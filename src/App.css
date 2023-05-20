@@ -1,0 +1,14 @@
+/* /* #root {
+
+  margin: 0;
+  padding: 0;
+  text-align: center;
+} */
+
+.appDesign{
+  width:99.9vw;
+  height: 100vh;
+} 
+*::-webkit-scrollbar{
+  display: none;
+} 

@@ -1,0 +1,19 @@
+
+.homeDesign {
+
+    height: 79.8vh;
+    width: 100vw;
+
+    background-color: rgb(251, 251, 251);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.charactersDesign {
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
