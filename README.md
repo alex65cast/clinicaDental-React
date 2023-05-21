@@ -14,7 +14,7 @@ Tecnologías usadas:
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
 <img src ="/public/html.png"> 
-<img src ="/public/javaScript.png" width="180"> 
+<img src ="/public/javaScript.png"> 
 <img src ="/public/react-redux-logo.jpg" width ="400"> 
 </div>
 
