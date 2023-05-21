@@ -48,11 +48,7 @@ export const Profile = () => {
   return (
     <div className="profileDesign">
       {datosPerfilUser.id !== "" ? (
-        // <div>
-        //   Nombre: {datosPerfilUser.name}<br></br>
-        //   Email: {datosPerfilUser.email}<br></br>
-        //   Rol: {datosPerfilUser.rol}
-        // </div>
+   
          <Card className="text-center">
          <Card.Header>Perfil de Usuario</Card.Header>
          <Card.Body>
