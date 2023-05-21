@@ -18,4 +18,11 @@
     grid-template-columns: repeat(3, 1fr); /* Distribuye las columnas en partes iguales */
     grid-gap: 20px; /* Espacio entre las tarjetas */
   }
-  
+  .search{
+    margin-top: 2em;
+  }
+
+  .buscarIcon{
+    width: 1.5em;
+    height: 1.5em;
+  }

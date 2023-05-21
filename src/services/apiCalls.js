@@ -29,11 +29,14 @@ export const bringUserProfile = async (token) => {
     return await axios.get(`http://localhost:3000/user/${token.user.id}`, config);
 }
 
-export const bringUsersAdmin = async (token) => {
+export const bringUsersAdmin = async (token, nameUs) => {
 
   let config = {
       headers: { 
         'Authorization': 'Bearer '+ token.token,  
+      },
+      params:{
+        name: nameUs
       }
   };
 
