@@ -45,7 +45,7 @@ export const Admin = () => {
   }, [datosPerfilUser]);
 
   return (
-    <Container fluid>
+    // <Container fluid>
       <div className="adminDesing">
         <div className="card-grid">
         {datosPerfilUser.length > 0 ? (
@@ -76,6 +76,6 @@ export const Admin = () => {
         )}
         </div>
       </div>
-    </Container>
+    // </Container>
   );
 };

@@ -9,6 +9,7 @@ import { Detail } from '../Detail/Detail';
 import { Profile } from '../Profile/Profile';
 import { Appointments } from '../Appointments/Appointments';
 import { NewAppointment } from '../NewAppointment/NewAppointment';
+import { ModalEditQuote } from '../ModalEditQuote/modalEditQuote';
 import "./Body.css"
 import { Admin } from '../Admin/Admin';
 
@@ -24,6 +25,7 @@ export const Body = () => {
                 <Route path="/register" element={<Register />}/>
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/detail" element={<Detail />}/>
+                <Route path="/modalEdit" element={<ModalEditQuote />}/>
                 <Route path="/appointments" element={<Appointments />}/>
                 <Route path="/newappointments" element={<NewAppointment />}/>
             </Routes>

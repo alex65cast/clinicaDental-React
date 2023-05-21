@@ -119,9 +119,9 @@ export const Appointments = () => {
   }, [datosPerfilUser]);
 
   return (
-    <Container fluid>
-      <div className="quoteDesing">
-        <div className="cardGrid">
+    // <Container fluid>
+      <div className="adminDesing">
+        <div className="card-grid">
           {datosPerfilUser.length > 0 ? (
             <>
             {quoteRdxData ? (
@@ -230,6 +230,6 @@ export const Appointments = () => {
           )}
         </div>
       </div>
-    </Container>
+    // </Container>
   );
 };

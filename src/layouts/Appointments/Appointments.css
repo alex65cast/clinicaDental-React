@@ -9,6 +9,7 @@
 }
 
 .cardGrid {
+    margin-top: 10em;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Distribuye las columnas en partes iguales */
     grid-gap: 20px; /* Espacio entre las tarjetas */

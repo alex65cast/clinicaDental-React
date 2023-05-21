@@ -4,8 +4,16 @@
 } */
 .headerDesign {
 
-    /* height: 1vh; */
-    /* width: 100vw; */
+    height: 10vh;
+    width: 100%;
+    background: #176087;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
 }
 
 .headerDesign img{

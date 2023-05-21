@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-export const modalEditQuote = () => {
+export const ModalEditQuote = () => {
 
     const [show, setShow] = useState(false);
 
@@ -12,9 +12,6 @@ export const modalEditQuote = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
