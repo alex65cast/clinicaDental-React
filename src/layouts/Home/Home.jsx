@@ -1,16 +1,8 @@
 import React from "react";
 import "./Home.css";
-
-import loading from "../../../public/loading.gif";
-import loadingCircle from "../../../public/loadingCircle.gif";
-import { bringCharacters } from "../../services/apiCalls";
-
-import { useDispatch } from "react-redux";
 import { Carousel } from "react-bootstrap";
 import firstSlide from "../../../public/equipo-medico-clinica-dental.jpg";
-import secondtSlide from "../../../public/clinica2.jpg";
 import thirdtSlide from "../../../public/clinica3.jpg";
-import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 

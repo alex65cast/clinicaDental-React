@@ -12,23 +12,7 @@ import Card from 'react-bootstrap/Card';
 
 export const Profile = () => {
   const [datosPerfilUser, setDatosPerfilUser] = useState({});
-  useEffect(()=>{
-
-    console.log(datosPerfilUser,"DATOS PERFIL");
-  },[])
-  
-
-  //Instancio conexion a RDX en modo lectura
-
   const userRdxData = useSelector(userData);
-
-  useEffect(()=>{
-
-  console.log(userRdxData.credentials,"HOALALAA");
-
-  },[])
-
-
   const navigate = useNavigate();
 
   useEffect(() => {

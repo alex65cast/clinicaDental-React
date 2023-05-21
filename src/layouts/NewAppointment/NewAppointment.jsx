@@ -17,20 +17,10 @@ import { createNewQoute } from "../../services/apiCalls";
 
 export const NewAppointment = () => {
 
-   const dispatch = useDispatch();
-
- 
-   const userRdxData = useSelector(userData);
-   useEffect(()=>{
-    console.log(userRdxData,"DATOOOOOS")
-   })
- 
-   //Instanciamos Navigate
- 
+   const dispatch = useDispatch(); 
    const navigate = useNavigate();
+   const [dentistInfo, setDentistInfo] = useState([]);
  
-   
-   //Hook
    const [credentials, setCredentials] = useState({
      dentist: "",
      quote: "",
@@ -38,12 +28,8 @@ export const NewAppointment = () => {
      dateOfQuote: "",
     });
     
-    const [dentistInfo, setDentistInfo] = useState([]);
  
  
-   useEffect(() => {
-     console.log(credentials);
-   });
 
    const inputHandlerFunction = (e) => {
     setCredentials((prevState) => ({

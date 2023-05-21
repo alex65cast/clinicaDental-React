@@ -11,26 +11,16 @@ import { userData } from "../userSlice";
 import Container from "react-bootstrap/Container";
 
 export const Register = () => {
-  //Instanciamos RDX en modo escritura
 
   const dispatch = useDispatch();
-
-  //Instanciamos RDX en modo lectura
-
   const userRdxData = useSelector(userData);
-
-  //Instanciamos Navigate
-
   const navigate = useNavigate();
 
-  //Hook
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
     password: "",
   });
-
-  //   const [message, setMessage] = useState("");
 
   const inputHandlerFunction = (e) => {
     setCredentials((prevState) => ({
@@ -39,10 +29,6 @@ export const Register = () => {
     }));
   };
 
-  useEffect(() => {
-    console.log(credentials);
-  });
-
   const registerMe = () => {
     register(credentials)
       .then(() => {
@@ -50,11 +36,7 @@ export const Register = () => {
       })
       .catch((error) => console.log(error));
   };
-  //   useEffect(()=>{
-  //     if(userRdxData.credentials.token){
-  //       navigate("/")
-  //     };
-  //   },[]);
+ 
 
   return (
     <Container fluid>
