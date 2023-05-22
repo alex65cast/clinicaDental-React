@@ -19,6 +19,7 @@ export const NewAppointment = () => {
 
    const dispatch = useDispatch(); 
    const navigate = useNavigate();
+  const userRdxData = useSelector(userData);
    const [dentistInfo, setDentistInfo] = useState([]);
  
    const [credentials, setCredentials] = useState({
@@ -27,9 +28,6 @@ export const NewAppointment = () => {
      endOfQuote: "",
      dateOfQuote: "",
     });
-    
- 
- 
 
    const inputHandlerFunction = (e) => {
     setCredentials((prevState) => ({

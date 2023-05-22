@@ -11,7 +11,6 @@ import { userData } from "../userSlice";
 import Container from "react-bootstrap/Container";
 
 export const Register = () => {
-
   const dispatch = useDispatch();
   const userRdxData = useSelector(userData);
   const navigate = useNavigate();
@@ -36,44 +35,47 @@ export const Register = () => {
       })
       .catch((error) => console.log(error));
   };
- 
 
   return (
     <Container fluid>
       <div className="registerDesign">
         <Form>
           <div className="containerDesing">
-          <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="name"
-              placeholder="Enter name"
-              name="name"
-              onChange={inputHandlerFunction}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              name="email"
-              onChange={inputHandlerFunction}
-            />
-          </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="name"
+                placeholder="Enter name"
+                name="name"
+                onChange={inputHandlerFunction}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                onChange={inputHandlerFunction}
+              />
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={inputHandlerFunction}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit" onClick={() => registerMe()}>
-            Submit
-          </Button>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={inputHandlerFunction}
+              />
+            </Form.Group>
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={() => registerMe()}
+            >
+              Submit
+            </Button>
           </div>
         </Form>
       </div>
