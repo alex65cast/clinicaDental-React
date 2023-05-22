@@ -1,33 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Appointments.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
-import { bringQuotesUser } from "../../services/apiCalls";
-import { Container } from "react-bootstrap";
+import { bringQuotesUser, bringMeDentist, editQuote } from "../../services/apiCalls";
+import { Container, Card, Button, Modal, Form, Dropdown } from "react-bootstrap";
 import loadingCircle from "../../../public/loadingCircle.gif";
-import { Card } from "react-bootstrap";
-import { detail } from "../detailSlice";
-import { dispatch } from "react";
-import Button from "react-bootstrap/Button";
-import { Modal } from "react-bootstrap";
-import { Form } from "react-bootstrap";
-import { bringMeDentist } from "../../services/apiCalls";
-import { Dropdown } from "react-bootstrap";
-import { editQuote } from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
 
 export const Appointments = () => {
   const [datosPerfilUser, setDatosPerfilUser] = useState([]);
   const [dentistInfo, setDentistInfo] = useState([]);
-
   const [selectedQuote, setSelectedQuote] = useState(null);
-
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [credentials, setCredentials] = useState({
+    dentist: "",
+    quote: selectedQuote ? selectedQuote.quote : "",
+    endOfQuote: "",
+    dateOfQuote: "",
+  });
+
   const quoteRdxData = useSelector(userData);
   const navigate = useNavigate();
 
@@ -37,23 +31,18 @@ export const Appointments = () => {
     }
   }, []);
 
-  const [credentials, setCredentials] = useState({
-    dentist: "",
-    quote: selectedQuote ? selectedQuote.quote : "",
-    endOfQuote: "",
-    dateOfQuote: "",
-  });
-
   const inputHandlerFunction = (e) => {
     setCredentials((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
+
   const handleEditClick = (quote) => {
     setSelectedQuote(quote);
-    handleShow(); // Mostrar el modal de edición de citas
+    handleShow();
   };
+
   const handlerFunctionDentist = (e, id) => {
     const { name, value } = e.target;
     const newValue = e.type === "click" ? id : value;
@@ -62,14 +51,14 @@ export const Appointments = () => {
       [name]: newValue,
     }));
   };
+
   const editQ = () => {
-    console.log(selectedQuote, "SELECIONADO");
     if (selectedQuote) {
       editQuote(selectedQuote._id, credentials, quoteRdxData.credentials)
         .then(() => {
           handleClose();
-          setSelectedQuote(null); // Restablecer la cita seleccionada a null
-          navigate("/appoiments");
+          setSelectedQuote(null);
+          navigate("/appointments");
         })
         .catch((error) => console.log(error));
     }
@@ -78,7 +67,6 @@ export const Appointments = () => {
   useEffect(() => {
     bringMeDentist()
       .then((resultado) => {
-        console.log(resultado.data, "dentistas");
         setDentistInfo(resultado.data);
       })
       .catch((error) => console.log(error));
@@ -144,25 +132,25 @@ export const Appointments = () => {
                                   onChange={inputHandlerFunction}
                                 />
                               </Form.Group>
-                              <Dropdown
-                                className="d-inline mx"
-                                autoClose="inside"
-                              >
+                              <Dropdown className="d-inline mx" autoClose="inside">
                                 <Dropdown.Toggle id="dropdown-autoclose-inside">
-                                  Eliga un dentista
+                                  {credentials.dentist
+                                    ? dentistInfo.find((dentista) => dentista._id === credentials.dentist)
+                                        .name
+                                    : "Elige un dentista"}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                  {dentistInfo.map((dentistas) => (
+                                  {dentistInfo.map((dentista) => (
                                     <Dropdown.Item
-                                      key={dentistas._id}
+                                      key={dentista._id}
                                       name="dentist"
                                       as="button"
                                       type="button"
                                       onClick={(e) =>
-                                        handlerFunctionDentist(e, dentistas._id)
+                                        handlerFunctionDentist(e, dentista._id)
                                       }
                                     >
-                                      {dentistas.name}
+                                      {dentista.name}
                                     </Dropdown.Item>
                                   ))}
                                 </Dropdown.Menu>
@@ -179,7 +167,6 @@ export const Appointments = () => {
                                   onChange={inputHandlerFunction}
                                 />
                               </Form.Group>
-
                               <Form.Group
                                 className="mb-3"
                                 controlId="formBasicEndDate"
@@ -207,7 +194,7 @@ export const Appointments = () => {
                           </Button>
                         </Modal.Footer>
                       </Modal>
-                      {quote.activeQuote == true ? (
+                      {quote.activeQuote ? (
                         <Card.Footer className="text-muted activate">
                           Activa
                         </Card.Footer>
@@ -218,7 +205,7 @@ export const Appointments = () => {
                       )}
                     </Card>
                   );
-                })}{" "}
+                })}
               </>
             ) : (
               <div className="quoteDesing">No tienes</div>
