@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./NewAppointment.css";
-
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
@@ -19,7 +18,7 @@ export const NewAppointment = () => {
 
    const dispatch = useDispatch(); 
    const navigate = useNavigate();
-  const userRdxData = useSelector(userData);
+   const userRdxData = useSelector(userData);
    const [dentistInfo, setDentistInfo] = useState([]);
  
    const [credentials, setCredentials] = useState({
