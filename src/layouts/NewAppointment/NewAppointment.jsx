@@ -20,7 +20,7 @@ export const NewAppointment = () => {
    const dispatch = useDispatch(); 
    const navigate = useNavigate();
    const [dentistInfo, setDentistInfo] = useState([]);
- 
+   const userRdxData = useSelector(userData);
    const [credentials, setCredentials] = useState({
      dentist: "",
      quote: "",
